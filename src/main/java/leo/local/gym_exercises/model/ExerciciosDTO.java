@@ -12,6 +12,7 @@ import lombok.Setter;
 @Setter
 public class ExerciciosDTO {
 
+    private Long id;
     private String nome;
     private String descricao;
     private GrupoMuscular grupoMuscular;
