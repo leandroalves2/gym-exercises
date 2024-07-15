@@ -1,20 +1,20 @@
 package leo.local.gym_exercises.services.Impl;
 
-import leo.local.gym_exercises.entities.ExercisesEntity;
-import leo.local.gym_exercises.model.ExercisesDTO;
-import leo.local.gym_exercises.repository.ExercisesRepository;
-import leo.local.gym_exercises.services.ExercisesService;
+import leo.local.gym_exercises.entities.ExerciciosEntity;
+import leo.local.gym_exercises.model.ExerciciosDTO;
+import leo.local.gym_exercises.repository.ExerciciosRepository;
+import leo.local.gym_exercises.services.ExerciciosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ExercisesServiceImpl implements ExercisesService {
+public class ExerciciosServiceImpl implements ExerciciosService {
 
     @Autowired
-    private ExercisesRepository exercisesRepository;
+    private ExerciciosRepository exercisesRepository;
 
-    public void CadastrarExercicio(ExercisesDTO exercisesDTO){
-        ExercisesEntity exercisesEntity = new ExercisesEntity();
+    public void CadastrarExercicio(ExerciciosDTO exercisesDTO){
+        ExerciciosEntity exercisesEntity = new ExerciciosEntity();
 
         exercisesEntity.setNome(exercisesDTO.getNome());
         exercisesEntity.setDescricao(exercisesDTO.getDescricao());
@@ -23,6 +23,5 @@ public class ExercisesServiceImpl implements ExercisesService {
 
          exercisesRepository.save(exercisesEntity);
     }
-
 
 }

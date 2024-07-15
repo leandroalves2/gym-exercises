@@ -1,9 +1,8 @@
 package leo.local.gym_exercises.controller.exercises;
 
-import leo.local.gym_exercises.entities.ExercisesEntity;
 import leo.local.gym_exercises.exception.BusinessException;
-import leo.local.gym_exercises.model.ExercisesDTO;
-import leo.local.gym_exercises.services.ExercisesService;
+import leo.local.gym_exercises.model.ExerciciosDTO;
+import leo.local.gym_exercises.services.ExerciciosService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,10 +16,10 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/exercicio")
 public class CadastrarExercicioController {
 
-    private final ExercisesService exercisesService;
+    private final ExerciciosService exercisesService;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<String> CadastrarExercicio(@RequestBody ExercisesDTO exercisesDTO) {
+    public ResponseEntity<String> CadastrarExercicio(@RequestBody ExerciciosDTO exercisesDTO) {
         try {
             exercisesService.CadastrarExercicio(exercisesDTO);
             return ResponseEntity.ok("Exericio Cadastrado com sucesso!");
