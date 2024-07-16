@@ -17,7 +17,7 @@ public class ListarExerciciosController {
 
     private final ExerciciosService exercisesService;
 
-    @GetMapping("/listar_exercicios")
+    @GetMapping("/listar")
     public Page<ExerciciosDTO> ListarExercicios(Pageable pageable) {
         try {
             return exercisesService.ListarExercicios(pageable);

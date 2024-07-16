@@ -10,7 +10,9 @@ public interface ExerciciosService {
 
     Page<ExerciciosDTO> ListarExercicios(Pageable pageable);
 
-    Page<ExerciciosDTO> findByNomeContaining(String nome, Pageable pageable);
+    ExerciciosDTO findByNomeContaining(String nome);
+
+    ExerciciosDTO buscarPorId(Long id);
 
 
-}
+    }

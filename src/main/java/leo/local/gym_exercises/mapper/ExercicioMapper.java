@@ -6,6 +6,7 @@ import leo.local.gym_exercises.model.ExerciciosDTO;
 // ExercicioMapper.java
 public class ExercicioMapper {
 
+
     public static ExerciciosDTO exerciciostoDTO(ExerciciosEntity entity) {
         if (entity == null) {
             return null;

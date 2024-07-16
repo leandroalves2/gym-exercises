@@ -1,6 +1,7 @@
 package leo.local.gym_exercises.services.Impl;
 
 import leo.local.gym_exercises.entities.ExerciciosEntity;
+import leo.local.gym_exercises.exception.BusinessException;
 import leo.local.gym_exercises.mapper.ExercicioMapper;
 import leo.local.gym_exercises.model.ExerciciosDTO;
 import leo.local.gym_exercises.repository.ExerciciosRepository;
@@ -35,9 +36,15 @@ public class ExerciciosServiceImpl implements ExerciciosService {
     }
 
     @Override
-    public Page<ExerciciosDTO> findByNomeContaining(String nome, Pageable pageable) {
-        Page<ExerciciosEntity> page = exerciciosRepository.findByNomeContaining(nome, pageable);
-        return page.map(ExercicioMapper::exerciciostoDTO);
+    public ExerciciosDTO findByNomeContaining(String nome) {
+        ExerciciosEntity entity = exerciciosRepository.findByNomeContaining(nome);
+        return ExercicioMapper.exerciciostoDTO(entity);
+    }
+
+    public ExerciciosDTO buscarPorId(Long id) {
+        ExerciciosEntity entity = exerciciosRepository.findById(id)
+                .orElseThrow(() -> new BusinessException("Exercício não encontrado"));
+        return ExercicioMapper.exerciciostoDTO(entity);
     }
 
 
