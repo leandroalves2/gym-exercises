@@ -10,14 +10,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class ExerciciosServiceImpl implements ExerciciosService {
 
     @Autowired
-    private ExerciciosRepository exercisesRepository;
+    private ExerciciosRepository exerciciosRepository;
     private ExercicioMapper exercicioMapper;
 
     public void CadastrarExercicio(ExerciciosDTO exercisesDTO){
@@ -28,12 +25,20 @@ public class ExerciciosServiceImpl implements ExerciciosService {
         exercisesEntity.setGrupoMuscular(exercisesDTO.getGrupoMuscular());
         exercisesEntity.setEquipamento(exercisesDTO.getEquipamento());
 
-         exercisesRepository.save(exercisesEntity);
+        exerciciosRepository.save(exercisesEntity);
     }
 
     @Override
     public Page<ExerciciosDTO> ListarExercicios(Pageable pageable) {
-        Page<ExerciciosEntity> page = exercisesRepository.findAll(pageable);
+        Page<ExerciciosEntity> page = exerciciosRepository.findAll(pageable);
         return page.map(ExercicioMapper::exerciciostoDTO);
     }
+
+    @Override
+    public Page<ExerciciosDTO> findByNomeContaining(String nome, Pageable pageable) {
+        Page<ExerciciosEntity> page = exerciciosRepository.findByNomeContaining(nome, pageable);
+        return page.map(ExercicioMapper::exerciciostoDTO);
+    }
+
+
 }

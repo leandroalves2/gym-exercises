@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ExerciciosRepository extends JpaRepository<ExerciciosEntity, Long> {
+    Page<ExerciciosEntity> findByNomeContaining(String nome, Pageable pageable);
 
 }

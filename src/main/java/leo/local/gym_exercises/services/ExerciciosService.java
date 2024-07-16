@@ -8,7 +8,9 @@ public interface ExerciciosService {
 
     void CadastrarExercicio(ExerciciosDTO exercisesDTO);
 
-    public Page<ExerciciosDTO> ListarExercicios(Pageable pageable);
+    Page<ExerciciosDTO> ListarExercicios(Pageable pageable);
+
+    Page<ExerciciosDTO> findByNomeContaining(String nome, Pageable pageable);
 
 
 }
