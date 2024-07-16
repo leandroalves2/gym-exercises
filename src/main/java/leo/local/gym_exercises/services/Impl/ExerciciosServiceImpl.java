@@ -47,5 +47,22 @@ public class ExerciciosServiceImpl implements ExerciciosService {
         return ExercicioMapper.exerciciostoDTO(entity);
     }
 
+    public void editarExercicio(ExerciciosDTO exercisesDTO){
+        if(exercisesDTO.getId() == null){
+            throw new BusinessException("Exercício não encontrado");
+        }else {
+            ExerciciosEntity entity = exerciciosRepository.findById(exercisesDTO.getId())
+                    .orElseThrow(() -> new BusinessException("Exercício não encontrado"));
+
+            entity.setNome(exercisesDTO.getNome());
+            entity.setDescricao(exercisesDTO.getDescricao());
+            entity.setGrupoMuscular(exercisesDTO.getGrupoMuscular());
+            entity.setEquipamento(exercisesDTO.getEquipamento());
+
+            exerciciosRepository.save(entity);
+
+        }
+    }
+
 
 }

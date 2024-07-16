@@ -14,5 +14,6 @@ public interface ExerciciosService {
 
     ExerciciosDTO buscarPorId(Long id);
 
+    void editarExercicio(ExerciciosDTO exercisesDTO);
 
     }
