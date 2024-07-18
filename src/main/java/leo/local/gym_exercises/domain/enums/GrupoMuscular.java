@@ -1,4 +1,4 @@
-package leo.local.gym_exercises.enums;
+package leo.local.gym_exercises.domain.enums;
 
 public enum GrupoMuscular {
 

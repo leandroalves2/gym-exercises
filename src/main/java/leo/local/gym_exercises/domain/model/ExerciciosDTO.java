@@ -1,6 +1,6 @@
-package leo.local.gym_exercises.model;
+package leo.local.gym_exercises.domain.model;
 
-import leo.local.gym_exercises.enums.GrupoMuscular;
+import leo.local.gym_exercises.domain.enums.GrupoMuscular;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,5 +17,7 @@ public class ExerciciosDTO {
     private String descricao;
     private GrupoMuscular grupoMuscular;
     private String equipamento;
+    private int repeticoes;
+    private double peso;
 
 }

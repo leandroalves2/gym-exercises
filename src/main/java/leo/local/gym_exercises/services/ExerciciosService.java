@@ -1,19 +1,21 @@
 package leo.local.gym_exercises.services;
 
-import leo.local.gym_exercises.model.ExerciciosDTO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import leo.local.gym_exercises.domain.entities.ExerciciosEntity;
+import leo.local.gym_exercises.domain.model.ExerciciosDTO;
+
+import java.util.List;
 
 public interface ExerciciosService {
 
+    void persistirExercicio(ExerciciosDTO exerciciosDTO);
     void CadastrarExercicio(ExerciciosDTO exercisesDTO);
+    void EditarExercicio(ExerciciosDTO exercisesDTO);
+    void DeletarExercicio(Long id);
 
-    Page<ExerciciosDTO> ListarExercicios(Pageable pageable);
+    List<ExerciciosEntity> listarExercicios();
 
-    ExerciciosDTO findByNomeContaining(String nome);
+    ExerciciosEntity buscarPorIdExercicios(Long id);
 
-    ExerciciosDTO buscarPorId(Long id);
-
-    void editarExercicio(ExerciciosDTO exercisesDTO);
+    ExerciciosEntity buscarPorNomeExercicios(String nome);
 
     }

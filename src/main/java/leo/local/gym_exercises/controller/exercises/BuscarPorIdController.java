@@ -9,30 +9,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/exercicio")
-public class ListarExerciciosController {
+public class BuscarPorIdController {
 
     private final ExerciciosService exercisesService;
 
-    @GetMapping("/listar")
-    public ResponseEntity<List<ExerciciosDTO>> ListarExercicio() {
+    @GetMapping("/id/{id}")
+    public ResponseEntity<ExerciciosDTO> BuscarPorId(@PathVariable Long id) {
         try {
-            List<ExerciciosEntity> entityList = exercisesService.listarExercicios();
-            List<ExerciciosDTO> dtoList = new ArrayList<>();
-            for(ExerciciosEntity entity : entityList){
-                dtoList.add(ExercicioMapper.exerciciostoDTO(entity));
-            }
-            return ResponseEntity.ok(dtoList);
+            ExerciciosEntity entity = exercisesService.buscarPorIdExercicios(id);
+            ExerciciosDTO dto = ExercicioMapper.exerciciostoDTO(entity);
+            return ResponseEntity.ok(dto);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(),
-                    String.format("Não foi possivel Listar os exercícios."));
+                    String.format("Não foi possivel encontrar o exercício."));
         }
     }
-
 
 }

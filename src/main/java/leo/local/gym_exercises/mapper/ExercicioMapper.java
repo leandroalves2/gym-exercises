@@ -1,11 +1,13 @@
 package leo.local.gym_exercises.mapper;
 
-import leo.local.gym_exercises.entities.ExerciciosEntity;
-import leo.local.gym_exercises.model.ExerciciosDTO;
+import leo.local.gym_exercises.domain.entities.ExerciciosEntity;
+import leo.local.gym_exercises.domain.model.ExerciciosDTO;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
-// ExercicioMapper.java
+@Component
+@AllArgsConstructor
 public class ExercicioMapper {
-
 
     public static ExerciciosDTO exerciciostoDTO(ExerciciosEntity entity) {
         if (entity == null) {

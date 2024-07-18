@@ -1,7 +1,7 @@
-package leo.local.gym_exercises.entities;
+package leo.local.gym_exercises.domain.entities;
 
 import jakarta.persistence.*;
-import leo.local.gym_exercises.enums.GrupoMuscular;
+import leo.local.gym_exercises.domain.enums.GrupoMuscular;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,5 +22,7 @@ public class ExerciciosEntity {
     @Enumerated
     private GrupoMuscular grupoMuscular;
     private String equipamento;
+    private int repeticoes;
+    private double peso;
 
 }
