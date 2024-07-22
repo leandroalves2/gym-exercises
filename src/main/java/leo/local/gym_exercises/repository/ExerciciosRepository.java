@@ -9,6 +9,4 @@ public interface ExerciciosRepository extends JpaRepository<ExerciciosEntity, Lo
 
     ExerciciosEntity findByNome(String nome);
 
-
-
 }

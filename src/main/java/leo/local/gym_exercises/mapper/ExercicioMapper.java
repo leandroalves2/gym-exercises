@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class ExercicioMapper {
 
-    public static ExerciciosDTO exerciciostoDTO(ExerciciosEntity entity) {
+    public static ExerciciosDTO setEntityToDto(ExerciciosEntity entity) {
         if (entity == null) {
             return null;
         }
@@ -23,6 +23,18 @@ public class ExercicioMapper {
 
         return dto;
     }
+
+    public static ExerciciosEntity setDtoToEntity(ExerciciosDTO exercisesDTO, ExerciciosEntity entity){
+
+        entity.setNome(exercisesDTO.getNome());
+        entity.setDescricao(exercisesDTO.getDescricao());
+        entity.setGrupoMuscular(exercisesDTO.getGrupoMuscular());
+        entity.setEquipamento(exercisesDTO.getEquipamento());
+        entity.setRepeticoes(exercisesDTO.getRepeticoes());
+        entity.setPeso(exercisesDTO.getPeso());
+        return entity;
+    }
+
 
 }
 

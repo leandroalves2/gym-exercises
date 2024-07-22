@@ -29,7 +29,7 @@ public class ExerciciosServiceImpl implements ExerciciosService {
     public void CadastrarExercicio(ExerciciosDTO exerciciosDTO){
         try {
             ExerciciosEntity entity = new ExerciciosEntity();
-            setDtoToEntity(entity, exerciciosDTO);
+            ExercicioMapper.setDtoToEntity(exerciciosDTO, entity);
             exerciciosRepository.save(entity);
         }catch (BusinessException e){
             throw new BusinessException("Não foi possivel cadastrar o exercicio");
@@ -40,7 +40,7 @@ public class ExerciciosServiceImpl implements ExerciciosService {
         try {
 
             ExerciciosEntity entity = buscarPorIdExercicios(exerciciosDTO.getId());
-            setDtoToEntity(entity, exerciciosDTO);
+            ExercicioMapper.setDtoToEntity(exerciciosDTO, entity);
             exerciciosRepository.save(entity);
         }catch (BusinessException e){
             throw new BusinessException("Não foi possivel editar o exercicio");
@@ -85,17 +85,5 @@ public class ExerciciosServiceImpl implements ExerciciosService {
 
         return exercicio;
     }
-
-    public ExerciciosEntity setDtoToEntity(ExerciciosEntity entity, ExerciciosDTO exercisesDTO){
-
-        entity.setNome(exercisesDTO.getNome());
-        entity.setDescricao(exercisesDTO.getDescricao());
-        entity.setGrupoMuscular(exercisesDTO.getGrupoMuscular());
-        entity.setEquipamento(exercisesDTO.getEquipamento());
-        entity.setRepeticoes(exercisesDTO.getRepeticoes());
-        entity.setPeso(exercisesDTO.getPeso());
-        return entity;
-    }
-
 
 }

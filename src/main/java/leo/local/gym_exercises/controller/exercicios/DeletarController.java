@@ -1,6 +1,5 @@
-package leo.local.gym_exercises.controller.exercises;
+package leo.local.gym_exercises.controller.exercicios;
 
-import leo.local.gym_exercises.domain.model.ExerciciosDTO;
 import leo.local.gym_exercises.services.ExerciciosService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

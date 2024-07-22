@@ -1,4 +1,4 @@
-package leo.local.gym_exercises.controller.exercises;
+package leo.local.gym_exercises.controller.exercicios;
 
 import leo.local.gym_exercises.domain.model.ExerciciosDTO;
 import leo.local.gym_exercises.services.ExerciciosService;
@@ -16,12 +16,12 @@ import org.springframework.web.client.HttpClientErrorException;
 @RequestMapping("/exercicio")
 public class PersistirExercicioController {
 
-    private final ExerciciosService exercisesService;
+    private final ExerciciosService exerciciosService;
 
     @PostMapping()
     public ResponseEntity<String> PersistirExercicio(@RequestBody ExerciciosDTO exercisesDTO) {
         try {
-            exercisesService.persistirExercicio(exercisesDTO);
+            exerciciosService.persistirExercicio(exercisesDTO);
             if(exercisesDTO.getId() == null){
                 return ResponseEntity.ok("Exericio Cadastrado com sucesso!");
             }

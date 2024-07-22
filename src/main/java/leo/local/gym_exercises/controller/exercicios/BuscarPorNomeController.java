@@ -1,4 +1,4 @@
-package leo.local.gym_exercises.controller.exercises;
+package leo.local.gym_exercises.controller.exercicios;
 
 import leo.local.gym_exercises.domain.entities.ExerciciosEntity;
 import leo.local.gym_exercises.domain.model.ExerciciosDTO;
@@ -20,7 +20,7 @@ public class BuscarPorNomeController {
     public ResponseEntity<ExerciciosDTO> BuscarPorNome(@PathVariable String nome) {
         try {
             ExerciciosEntity entity = exercisesService.buscarPorNomeExercicios(nome);
-            ExerciciosDTO dto = ExercicioMapper.exerciciostoDTO(entity);
+            ExerciciosDTO dto = ExercicioMapper.setEntityToDto(entity);
             return ResponseEntity.ok(dto);
         } catch (HttpClientErrorException e) {
             throw new HttpClientErrorException(e.getStatusCode(),
