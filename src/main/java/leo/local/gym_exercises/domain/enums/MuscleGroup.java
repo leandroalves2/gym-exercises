@@ -1,6 +1,6 @@
 package leo.local.gym_exercises.domain.enums;
 
-public enum GrupoMuscular {
+public enum MuscleGroup {
 
     PEITO,
     COSTAS,

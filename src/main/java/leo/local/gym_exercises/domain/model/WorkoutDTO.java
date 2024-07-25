@@ -1,5 +1,6 @@
 package leo.local.gym_exercises.domain.model;
 
+import leo.local.gym_exercises.domain.entities.Exercise;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,9 +12,10 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class TreinoDTO {
+public class WorkoutDTO     {
 
-    private String nome;
-    private List<ExerciciosDTO> exerciciosDTOList;
+    private String name;
+    private List<Exercise> exerciseList;
+
 
 }

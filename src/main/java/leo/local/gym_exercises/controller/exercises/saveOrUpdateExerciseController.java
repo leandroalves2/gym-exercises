@@ -1,7 +1,7 @@
-package leo.local.gym_exercises.controller.exercicios;
+package leo.local.gym_exercises.controller.exercises;
 
-import leo.local.gym_exercises.domain.model.ExerciciosDTO;
-import leo.local.gym_exercises.services.ExerciciosService;
+import leo.local.gym_exercises.domain.model.ExerciseDTO;
+import leo.local.gym_exercises.services.ExerciseService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,15 +13,15 @@ import org.springframework.web.client.HttpClientErrorException;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/exercicio")
-public class PersistirExercicioController {
+@RequestMapping("/exercise")
+public class saveOrUpdateExerciseController {
 
-    private final ExerciciosService exerciciosService;
+    private final ExerciseService exerciseService;
 
     @PostMapping()
-    public ResponseEntity<String> PersistirExercicio(@RequestBody ExerciciosDTO exercisesDTO) {
+    public ResponseEntity<String> persistExercise(@RequestBody ExerciseDTO exercisesDTO) {
         try {
-            exerciciosService.persistirExercicio(exercisesDTO);
+            exerciseService.saveOrUpdateExercise(exercisesDTO);
             if(exercisesDTO.getId() == null){
                 return ResponseEntity.ok("Exericio Cadastrado com sucesso!");
             }
@@ -33,6 +33,4 @@ public class PersistirExercicioController {
                     String.format("Não foi possivel cadastrar o exercício."));
         }
     }
-
-
 }
